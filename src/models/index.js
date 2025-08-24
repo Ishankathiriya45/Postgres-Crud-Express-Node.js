@@ -1,5 +1,3 @@
-"use strict";
-
 const fs = require("fs");
 const path = require("path");
 const Sequelize = require("sequelize");
@@ -17,7 +15,7 @@ const host = process.env[`DB_HOSTNAME_${envMode}`];
 let sequelize;
 sequelize = new Sequelize(database, username, password, {
   host: host,
-  dialect: "mysql",
+  dialect: "postgres",
   pool: {
     min: parseInt(process.env.DB_POOL_MIN),
     max: parseInt(process.env.DB_POOL_MAX),

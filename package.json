@@ -4,7 +4,19 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon src/server.js"
+    "start": "nodemon src/server.js",
+    "migrate-local:all": "sequelize db:migrate --env local",
+    "migrate-test:all": "sequelize db:migrate --env test",
+    "migrate-prod:all": "sequelize db:migrate --env production",
+    "migrate-local:undo:one": "sequelize-cli db:migrate:undo --env local --name",
+    "migrate-test:undo:one": "sequelize-cli db:migrate:undo --env test --name",
+    "migrate-prod:undo:one": "sequelize-cli db:migrate:undo --env production --name",
+    "seed-local:all": "sequelize db:seed:all --env local",
+    "seed-test:all": "sequelize db:seed:all --env test",
+    "seed-prod:all": "sequelize db:seed:all --env production",
+    "seed-local:seed:one": "sequelize db:seed --env local",
+    "seed-test:seed:one": "sequelize db:seed --env test",
+    "seed-prod:seed:one": "sequelize db:seed --env production"
   },
   "author": "",
   "license": "ISC",
@@ -13,8 +25,12 @@
     "cli-color": "^2.0.4",
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
-    "mysql2": "^3.14.3",
+    "fs": "^0.0.1-security",
+    "multer": "^2.0.2",
     "nodemon": "^3.1.10",
+    "path": "^0.12.7",
+    "pg": "^8.16.3",
+    "pg-hstore": "^2.3.4",
     "sequelize": "^6.37.7",
     "sequelize-cli": "^6.6.3"
   }
