@@ -7,7 +7,7 @@ const config = {
     password: process.env[`DB_PASSWORD_${envMode}`],
     database: process.env[`DB_NAME_${envMode}`],
     host: process.env[`DB_HOSTNAME_${envMode}`],
-    dialect: "mysql",
+    dialect: "postgres",
   },
   pool: {
     min: parseInt(process.env.DB_POOL_MIN),
