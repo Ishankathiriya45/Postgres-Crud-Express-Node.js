@@ -1,4 +1,6 @@
 const { URL_LOCAL: url } = process.env;
+const { Op } = require("sequelize");
+const slugify = require("slugify");
 
 const isEmpty = (value) => {
   if (typeof value == "undefined" || value == null) return true;
@@ -22,6 +24,16 @@ module.exports = {
 
   getFileUrl: (foldername, filename) => {
     return `${url}/public/uploads/${foldername}/${filename}`;
+  },
+
+  generateSlug: (value) => {
+    return slugify(value, {
+      replacement: "-",
+      remove: /[*+~.()'"!:@]/g,
+      lower: true,
+      strict: true,
+      trim: true,
+    });
   },
 
   fetchRecords: async (

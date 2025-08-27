@@ -56,6 +56,11 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     {
+      defaultScope: {
+        where: {
+          is_active: true,
+        },
+      },
       sequelize,
       paranoid: true,
       modelName: "Product",
